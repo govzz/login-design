@@ -16,15 +16,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText email;
     private Button button_register;
     private Button button_linkToLogin;
-
     private EditText login_name;
     private EditText login_password;
     private Button button_login;
     private Button button_linkToRegister;
-
     private Button button_logout;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +47,48 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setContentView(R.layout.layout_login);
                 button_login=findViewById(R.id.btnLogin);
+                login_name=findViewById(R.id.email);
+                login_password=findViewById(R.id.password);
+                button_login=findViewById(R.id.btnLogin);
+                button_linkToRegister=findViewById(R.id.btnLinkToRegisterScreen);
+                button_linkToRegister.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        setContentView(R.layout.layout_register);
+                        name=findViewById(R.id.name);
+                        password=findViewById(R.id.password);
+                        email=findViewById(R.id.password);
+                        button_register=findViewById(R.id.btnRegister);
+                        button_linkToLogin=findViewById(R.id.btnLinkToLoginScreen);
+
+
+
+                        button_register.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                registerTask task=new registerTask();
+                                task.execute();
+                            }
+                        });
+
+                        button_linkToLogin.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setContentView(R.layout.layout_login);
+                                button_login=findViewById(R.id.btnLogin);
+                            }
+                        });
+
+                    }
+                });
+
+                button_login.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        loginTask task=new loginTask();
+                        task.execute();
+                    }
+                });
             }
         });
 
@@ -86,6 +124,30 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     setContentView(R.layout.layout_register);
+                    name=findViewById(R.id.name);
+                    password=findViewById(R.id.password);
+                    email=findViewById(R.id.password);
+                    button_register=findViewById(R.id.btnRegister);
+                    button_linkToLogin=findViewById(R.id.btnLinkToLoginScreen);
+
+
+
+                    button_register.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            registerTask task=new registerTask();
+                            task.execute();
+                        }
+                    });
+
+                    button_linkToLogin.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            setContentView(R.layout.layout_login);
+                            button_login=findViewById(R.id.btnLogin);
+                        }
+                    });
+
                 }
             });
 
